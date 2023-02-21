@@ -1,0 +1,24 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+     gateway:
+       routes:
+         - id: CATALOGUE-SERVICE
+           uri: lb://CATALOGUE-SERVICE
+           predicates:
+             - Path=/catalogue/**
+         - id: INVENTORY-SERVICE
+           uri: lb://INVENTORY-SERVICE
+           predicates:
+             - Path=/inventory/**
+         - id: INHANDPRODUCTS-SERVICE
+           uri: lb://INHANDPRODUCTS-SERVICE
+           predicates:
+             - Path=/GetInHandProduct/**
+
+  main:
+    web-application-type: reactive
