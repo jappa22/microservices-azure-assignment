@@ -88,11 +88,10 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.10</version>
+				<version>1.4.13</version>
 				<executions>
 					<execution>
 						<id>default</id>
@@ -104,19 +103,18 @@
 					</execution>
 				</executions>
 				<configuration>
-						<repository> </repository>
+						<repository>catalogue-service</repository>
 						<tag>${project.version}</tag>
 						<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>javax.activation</groupId>
-						<artifactId>activation</artifactId>
+						<artifactId>javax.activation-api</artifactId>
 						<version>1.2.0</version>
 					</dependency>
 				</dependencies>
 			</plugin>
-
 		</plugins>
 	</build>
 
