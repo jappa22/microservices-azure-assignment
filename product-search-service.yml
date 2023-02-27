@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service-app
+  labels:
+    app: inventory-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productsearch-service-app
+  template:
+    metadata:
+      labels:
+        app: productsearch-service-app
+    spec:
+      containers:
+        - name: productsearch-service-app
+          image: jappa22/product-search-service:0.0.2
+          ports:
+            - containerPort: 8083
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: productsearch-service-svc
+spec:
+  selector:
+    app: productsearch-service-app
+  ports:
+  - port: 80
+    targetPort: 8083
+
+
