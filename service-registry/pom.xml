@@ -62,7 +62,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>service-registry</repository>
+					<repository>jappa22/service-registry</repository>
 					<tag>${project.version}</tag>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 				</configuration>

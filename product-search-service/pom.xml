@@ -106,7 +106,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>product-search-service</repository>
+					<repository>jappa22/cproduct-search-service</repository>
 					<tag>${project.version}</tag>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 				</configuration>
