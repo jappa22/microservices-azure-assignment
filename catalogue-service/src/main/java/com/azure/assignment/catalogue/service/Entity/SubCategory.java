@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class SubCategory {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long subCategoryId;
     private String productType;
