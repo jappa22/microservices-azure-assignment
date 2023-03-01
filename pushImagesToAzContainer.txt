@@ -1,0 +1,11 @@
+issue:
+unauthorized: authentication required
+[error]unauthorized: authentication required
+[error]/usr/bin/docker failed with return code: 
+
+solution:
+az login 
+az acr login --name <azure container name>
+docker tag jappa22/catalogue-service:0.0.2 k8sazuremicroservices.azurecr.io/images/catalogue-service:0.0.2
+
+docker push k8sazuremicroservices.azurecr.io/images/catalogue-service:0.0.2
