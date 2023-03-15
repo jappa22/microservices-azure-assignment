@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.microservices.azure.assignment</groupId>
 	<artifactId>catalogue_service</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.7</version>
 	<name>catalogue_service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Catalogue service</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>

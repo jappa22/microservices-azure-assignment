@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.azure.assignment.inventory</groupId>
 	<artifactId>InventoryService </artifactId>
-	<version>0.0.2</version>
+	<version>0.0.9</version>
 	<name>InventoryService </name>
-	<description>Demo project for Spring Boot</description>
+	<description>Inventory service</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>

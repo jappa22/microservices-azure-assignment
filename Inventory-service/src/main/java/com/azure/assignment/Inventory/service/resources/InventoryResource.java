@@ -23,7 +23,7 @@ public class InventoryResource {
 
     @GetMapping("/getInventoryOfProduct/{modelNumber}")
     public GetInHandProductDto GetInventoryOfProduct(@PathVariable String modelNumber){
-            ResponseEntity<GetInHandProductDto> forEntity = restTemplate.getForEntity("http://INHANDPRODUCTS-SERVICE/GetInHandProduct/getProduct/" +modelNumber,
+            ResponseEntity<GetInHandProductDto> forEntity = restTemplate.getForEntity("http://40.81.248.67:80/GetInHandProduct/getProduct/" +modelNumber,
                 GetInHandProductDto.class);
         GetInHandProductDto body = forEntity.getBody();
         return body;
