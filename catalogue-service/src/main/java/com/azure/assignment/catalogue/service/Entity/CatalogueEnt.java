@@ -1,6 +1,5 @@
 package com.azure.assignment.catalogue.service.Entity;
 
-import com.azure.assignment.catalogue.service.Data.Items;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "CatalogueTable")
 public class CatalogueEnt {
 
     @Id
@@ -28,7 +28,5 @@ public class CatalogueEnt {
     @JsonIgnore
     private Long catalogueId;
     private String categoryName;
-    @Embedded
-    private Items items;
-
+    private String product;
 }
