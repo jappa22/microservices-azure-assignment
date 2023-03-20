@@ -15,14 +15,14 @@ public class MQListenr {
     ProductSearchService productSearchService;
 
     @RabbitListener(queues = MQConfig.QUEUE)
-    public void listner(InHandProductsRequestDto inHandProductsRequestDto){
+    public void listner(InHandProductsRequestDto inHandProductsRequestDto) {
         String inHandProducts = (productSearchService.getInHandProducts(inHandProductsRequestDto.getModelNumber()));
         int i = (Integer.parseInt(inHandProducts) + Integer.parseInt(inHandProductsRequestDto.getInHandProduct()));
         productSearchService.addItems(Integer.toString(i), inHandProductsRequestDto.getModelNumber());
     }
 
     @RabbitListener(queues = MQConfig.QUEUE)
-    public void listnerForDelete(DecreaseProductCount decreaseProductCount){
+    public void listnerForDelete(DecreaseProductCount decreaseProductCount) {
         String inHandProducts = (productSearchService.getInHandProducts(decreaseProductCount.getModelNumber()));
         int i = (Integer.parseInt(inHandProducts) - Integer.parseInt(decreaseProductCount.getItemCountToRemove()));
         productSearchService.removeItems(Integer.toString(i), decreaseProductCount.getModelNumber());

@@ -31,12 +31,15 @@ public class InventoryResource {
     private RestTemplate restTemplate;
 
     @GetMapping("/getInventoryOfProduct/{modelNumber}")
-    public GetInHandProductDto GetInventoryOfProduct(@PathVariable String modelNumber) throws InternalServiceException{
+    public GetInHandProductDto GetInventoryOfProduct(@PathVariable String modelNumber) throws InternalServiceException {
         try {
-            ResponseEntity<GetInHandProductDto> forEntity = restTemplate.getForEntity("http://40.81.248.67:80/GetInHandProduct/getProduct/" + modelNumber,
+            ResponseEntity<GetInHandProductDto> forEntity = restTemplate.getForEntity("http://20.207.109.236:80/GetInHandProduct/getProduct/" + modelNumber,
                     GetInHandProductDto.class);
+            if(!forEntity.hasBody()){
+                throw new InternalServiceException("Internal service exception", "E11111");
+            }
             return forEntity.getBody();
-        }catch (RestClientException exception){
+        } catch (RestClientException exception) {
             logger.error("exception while connect to other MS", exception);
             throw new InternalServiceException("Internal service exception", "E11111");
         }

@@ -1,4 +1,5 @@
 package com.azure.assignment.product.search.service.Messages;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

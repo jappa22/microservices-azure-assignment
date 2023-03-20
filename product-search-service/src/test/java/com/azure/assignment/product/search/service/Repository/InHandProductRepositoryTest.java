@@ -11,9 +11,8 @@ class InHandProductRepositoryTest {
     @Autowired
     private InHandProductRepository inHandProductRepository;
 
-
     @Test
-    public void saveInHandProduct(){
+    public void saveInHandProduct() {
         InHandProducts inHandProducts = InHandProducts.builder()
                 .productId(1l)
                 .inHandProduct("12")
@@ -24,7 +23,7 @@ class InHandProductRepositoryTest {
     }
 
     @Test
-    public void saveInHandProduct1(){
+    public void saveInHandProduct1() {
         InHandProducts inHandProducts = InHandProducts.builder()
                 .productId(2l)
                 .inHandProduct("23")

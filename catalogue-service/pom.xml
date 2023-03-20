@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.microservices.azure.assignment</groupId>
 	<artifactId>catalogue_service</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<name>catalogue_service</name>
 	<description>Catalogue service</description>
 	<properties>

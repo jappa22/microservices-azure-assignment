@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productsearch-service-app
+  labels:
+    app: productsearch-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productsearch-service-app
+  template:
+    metadata:
+      labels:
+        app: productsearch-service-app
+    spec:
+      containers:
+        - name: productsearch-service-app
+          image: gmazurecontainerregistry.azurecr.io/image17march/product-search-service:1.0.1
+          ports:
+            - containerPort: 8083
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: productsearch-service-svc
+spec:
+  selector:
+    app: productsearch-service-app
+  ports:
+  - port: 80
+    targetPort: 8083
+
+

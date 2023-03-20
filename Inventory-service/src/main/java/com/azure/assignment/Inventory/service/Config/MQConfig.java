@@ -11,22 +11,22 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MQConfig {
 
-    public static final String QUEUE= "message_queue";
-    public static final String MESSAGE_EXCHANGE= "message_exchange";
-    public static final String MESSAGE_ROUTINGKEY= "message_routingkey";
+    public static final String QUEUE = "message_queue";
+    public static final String MESSAGE_EXCHANGE = "message_exchange";
+    public static final String MESSAGE_ROUTINGKEY = "message_routingkey";
 
     @Bean
-    public Queue queue(){
+    public Queue queue() {
         return new Queue(QUEUE);
     }
 
     @Bean
-    public TopicExchange topicExchange(){
+    public TopicExchange topicExchange() {
         return new TopicExchange(MESSAGE_EXCHANGE);
     }
 
     @Bean
-    public Binding binding(Queue queue, TopicExchange topicExchange){
+    public Binding binding(Queue queue, TopicExchange topicExchange) {
         return BindingBuilder
                 .bind(queue)
                 .to(topicExchange)
@@ -34,12 +34,12 @@ public class MQConfig {
     }
 
     @Bean
-    public MessageConverter messageConverter(){
+    public MessageConverter messageConverter() {
         return new Jackson2JsonMessageConverter();
     }
 
     @Bean
-    public AmqpTemplate template(ConnectionFactory factory){
+    public AmqpTemplate template(ConnectionFactory factory) {
         RabbitTemplate template = new RabbitTemplate(factory);
         template.setMessageConverter(messageConverter());
         return template;

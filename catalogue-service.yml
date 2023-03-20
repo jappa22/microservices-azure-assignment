@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue-service-app
+  labels:
+    app: catalogue-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalogue-service-app
+  template:
+    metadata:
+      labels:
+        app: catalogue-service-app
+    spec:
+      containers:
+        - name: catalogue-service-app
+          image: gmazurecontainerregistry.azurecr.io/image17march/catalogue-service:1.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:   # Setting Environmental Variables
+            - name: DB_HOST   # Setting Database host address
+              value: mysql
+            - name: DB_NAME  # Setting Database name
+              value: testdb
+            - name: DB_USERNAME  # Setting Database username
+              value: root
+            - name: DB_PASSWORD # Setting Database password
+              value: pass@word1
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-service-svc
+spec:
+  selector:
+    app: catalogue-service-app
+  ports:
+  - port: 80
+    targetPort: 8081
+
+

@@ -12,14 +12,15 @@ public class ProductSearchService {
     InHandProductRepository inHandProductRepository;
 
     public InHandProducts getInHandProduct(String modelNumber) {
-        return inHandProductRepository.findByModelNumber(modelNumber);
+        InHandProducts inHandProducts = inHandProductRepository.findByModelNumber(modelNumber);
+        return inHandProducts;
     }
 
     public void addItems(String productCount, String modelNumber) {
         inHandProductRepository.updateItemsinDb(productCount, modelNumber);
     }
 
-    public String getInHandProducts(String modelNumber){
+    public String getInHandProducts(String modelNumber) {
         String numberOfProducts = inHandProductRepository.getCount(modelNumber);
         return numberOfProducts;
     }

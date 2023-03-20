@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.azure.assignment.inventory</groupId>
 	<artifactId>InventoryService </artifactId>
-	<version>0.0.9</version>
+	<version>1.0.3</version>
 	<name>InventoryService </name>
 	<description>Inventory service</description>
 	<properties>
