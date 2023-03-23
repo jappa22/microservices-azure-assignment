@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cloud-gateway-app
-          image: jappa22/cloud-gateway-service:0.0.1-SNAPSHOT
+          image: gmazurecontainerregistry.azurecr.io/cloud-gateway-service:1.1.1
           ports:
             - containerPort: 9191
 
@@ -28,10 +28,12 @@ metadata:
   name: cloud-gateway-svc
 spec:
   type: LoadBalancer
-  selector:
-    app: inventory-service-app
   ports:
-  - port: 80
-    targetPort: 9191
+    - port: 80
+      targetPort: 9191
+      protocol: TCP
+  selector:
+    app: cloud-gateway-app
+  
 
 

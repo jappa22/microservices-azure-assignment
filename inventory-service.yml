@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: inventory-service-app
-          image: gmazurecontainerregistry.azurecr.io/image17march/inventory-service:1.0.3
+          image: gmazurecontainerregistry.azurecr.io/inventory-service:1.1.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8082

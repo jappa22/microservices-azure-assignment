@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: productsearch-service-app
-          image: gmazurecontainerregistry.azurecr.io/image17march/product-search-service:1.0.1
+          image: gmazurecontainerregistry.azurecr.io/product-search-service:1.1.2
           ports:
             - containerPort: 8083
 

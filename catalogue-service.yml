@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: catalogue-service-app
-          image: gmazurecontainerregistry.azurecr.io/image17march/catalogue-service:1.0.2
+          image: gmazurecontainerregistry.azurecr.io/catalogue-service:1.1.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8081

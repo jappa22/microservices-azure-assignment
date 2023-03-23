@@ -18,11 +18,12 @@ metadata:
     app: eureka
 spec:
   clusterIP: None
-  selector:
-    app: eureka
   ports:
   - port: 8761
     name: eureka
+  selector:
+    app: eureka
+  
 
 ---
 
@@ -32,27 +33,28 @@ kind: StatefulSet
 metadata:
   name: eureka
 spec:
+  serviceName: "eureka"
+  replicas: 1
   selector:
     matchLabels:
       app: eureka
-  serviceName: "eureka"
-  replicas: 1
   template:
     metadata:
       labels:
         app: eureka
     spec:
       containers:
-      - name: eureka
-        image: gmazurecontainerregistry.azurecr.io/image/service-registry:0.0.3
-        ports:
-        - containerPort: 8761
-        env: 
-          - name: EUREKA_SERVER_ADDRESS
-            valueFrom:
-              configMapKeyRef:
-                name: eureka-cm
-                key: eureka_service_address
+        - name: eureka
+          image: gmazurecontainerregistry.azurecr.io/service-registry:1.1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8761
+          env: 
+            - name: EUREKA_SERVER_ADDRESS
+              valueFrom:
+                configMapKeyRef:
+                  name: eureka-cm
+                  key: eureka_service_address
 
 
 ---
