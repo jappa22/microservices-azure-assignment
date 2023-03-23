@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.azure.assignment</groupId>
 	<artifactId>cloud-gateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1.1</version>
 	<name>cloud-gateway</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Cloud gateway</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>

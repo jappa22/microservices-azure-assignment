@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.azure.assignment</groupId>
 	<artifactId>service-registry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1.1</version>
 	<name>service-registry</name>
 	<description>service-registry</description>
 	<properties>

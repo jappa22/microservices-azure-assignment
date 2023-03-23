@@ -33,6 +33,7 @@ public class CatalogueService {
     Logger logger = LoggerFactory.getLogger(CatalogueService.class);
 
     public List<CatalogueEnt> getAllCatalogue() throws InternalServiceException {
+        logger.trace("inside getAllCatalogue method.", logger.getClass());
         List<CatalogueEnt> allCatalogue = repository.findAllByOrderByCategoryName();
         if(allCatalogue.isEmpty()){
             logger.error("no data found");
@@ -42,6 +43,7 @@ public class CatalogueService {
     }
 
     public List<CatalogueEnt> getProducts(String catName) throws InternalServiceException {
+        logger.trace("inside getProducts method.", logger.getClass());
         List<CatalogueEnt> products = repository.findByCategoryName(catName);
         if(products.isEmpty()){
             logger.error("no data found for given category.");
@@ -51,6 +53,7 @@ public class CatalogueService {
     }
 
     public List<SubCategory> getProductsBySubCat(String product) throws InternalServiceException {
+        logger.trace("inside getProductsBySubCat method.", logger.getClass());
         List<SubCategory> productBySubCategory = subCategoryRepository.findByproductType(product);
         if(productBySubCategory.isEmpty()){
             logger.error("no data found for given product.");
@@ -60,6 +63,7 @@ public class CatalogueService {
     }
 
     public GetProduct getProductDetails(String id) throws InternalServiceException{
+        logger.trace("inside getProductDetails method.", logger.getClass());
         GetProduct productDetails = getProductRepository.findByModelNumber(id);
         if(productDetails == null){
             logger.error("no data found for given id.");

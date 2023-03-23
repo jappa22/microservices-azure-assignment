@@ -1,17 +1,13 @@
 package com.azure.assignment.Inventory.service.resources;
 
 import com.azure.assignment.Inventory.service.Data.AddInventoryRequest;
-import com.azure.assignment.Inventory.service.Data.GetInHandProductDto;
 import com.azure.assignment.Inventory.service.Data.RemoveItemsFromInventoryRequest;
 import com.azure.assignment.Inventory.service.Exception.InternalServiceException;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.test.context.SpringRabbitTest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -20,8 +16,6 @@ import org.testcontainers.containers.RabbitMQContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Testcontainers

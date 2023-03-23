@@ -1,5 +1,6 @@
 package com.azure.assignment.product.search.service.Resources;
 
+import com.azure.assignment.product.search.service.Exception.InternalServiceException;
 import com.azure.assignment.product.search.service.Messages.InHandProducts;
 import com.azure.assignment.product.search.service.Messages.InHandProductsResponse;
 import com.azure.assignment.product.search.service.Service.ProductSearchService;
@@ -23,7 +24,7 @@ class ProductSearchResourceTest {
     private ProductSearchResource productSearchResource;
 
     @Test
-    void getInHandProduct() {
+    void getInHandProduct() throws InternalServiceException {
         Mockito.when(productSearchService.getInHandProduct("123")).thenReturn(getInhandProds());
         InHandProducts inHandProduct = productSearchResource.getInHandProduct("123");
         Assertions.assertEquals(1l, inHandProduct.getProductId());
@@ -38,7 +39,7 @@ class ProductSearchResourceTest {
     }
 
     @Test
-    void getcount() {
+    void getcount() throws InternalServiceException{
         Mockito.when(productSearchService.getInHandProducts("123")).thenReturn("2");
         InHandProductsResponse response = productSearchResource.getcount("123");
         Assertions.assertEquals("2", response.getCount());
